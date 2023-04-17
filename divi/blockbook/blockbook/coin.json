@@ -1,0 +1,19 @@
+{
+    "mempoolTxTimeoutHours": 48,
+    "queryBackendOnMempoolResync": false,
+    "coin_name": "Divi",
+    "coin_shortcut": "DIVI",
+    "coin_label": "Divi Project",
+    "rpc_url": "http://divi:8030",
+    "rpc_user": "rostislav",
+    "rpc_pass": "hakerman",
+    "rpc_timeout": 25,
+    "parse": true,
+    "message_queue_binding": "tcp://divi:38330",
+    "subversion": "",
+    "address_format": "", "slip4":301,
+
+    "mempool_workers": 8,
+    "mempool_sub_workers": 2,
+    "block_addresses_to_keep": 300
+}

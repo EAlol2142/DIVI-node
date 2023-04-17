@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  divi-testnet:
+    image: divi:2.5.1-testnet
+    container_name: divi-testnet
+    restart: always
+    volumes:
+      - /opt/divi-testnet/data/:/coin/data
+    ports:
+      - 8030:8030
+      - 38330:38330
+      - 22556:22556
+    networks:
+      - divi-net
+  divi-testnet-blockbook:
+    image: blockbook:latest
+    container_name: divi-testnet-blockbook
+    restart: always
+    volumes:
+      - /opt/divi-testnet/blockbook:/opt/data
+      - /opt/divi-testnet/coin.json:/opt/coin.json
+    ports:
+      - 9032:9030
+      - 9132:9130
+    networks:
+      - divi-net
+    depends_on:
+      - divi-testnet
+  divi-testnet-nginx:
+    image: docker pull nginx
+    container name: divi-testnet-server
+    restart: always
+    ports:
+      - 80:80
+    networks:
+      - divi-net
+ 
+
+networks: {"divi-net"}
